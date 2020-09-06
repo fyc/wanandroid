@@ -25,7 +25,7 @@ class MainFragment : BaseFragment() {
 
     private val titleList = arrayOf("首页", "广场", "最新项目", "体系", "导航")
     private val fragmentList = arrayListOf<Fragment>()
-    private val homeFragment by lazy { HomeFragment() } // 首页
+    private val homeFragment by lazy { EduMainFragment() } // 首页
     private val squareFragment by lazy { SquareFragment() } // 广场
     private val lastedProjectFragment by lazy { ProjectTypeFragment.newInstance(0, true) } // 最新项目
     private val systemFragment by lazy { SystemFragment() } // 体系
