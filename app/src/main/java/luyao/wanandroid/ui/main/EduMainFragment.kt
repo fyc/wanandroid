@@ -50,10 +50,6 @@ class EduMainFragment : BaseVMFragment<FragmentEduMainBinding>(R.layout.fragment
                 it?.let { setBanner(it) }
             })
 
-            mmBanners.observe(viewLifecycleOwner, Observer { it ->
-                it?.let { setBanner(it) }
-            })
-
             uiState.observe(viewLifecycleOwner, Observer {
 
                 it.showSuccess?.let { list ->
@@ -77,7 +73,6 @@ class EduMainFragment : BaseVMFragment<FragmentEduMainBinding>(R.layout.fragment
     }
 
     fun refresh() {
-        context?.let { eduMainViewModel.getBanners(it) }
         eduMainViewModel.getEduMainCourseList(true)
     }
 

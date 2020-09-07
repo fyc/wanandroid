@@ -12,6 +12,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import luyao.mvvm.core.Result
 import luyao.mvvm.core.base.BaseViewModel
+import luyao.wanandroid.App
 import luyao.wanandroid.databean.EduJson
 import luyao.wanandroid.databean.EduResponse
 import luyao.wanandroid.model.bean.ArticleList
@@ -40,20 +41,21 @@ class EduMainViewModel(
         kotlin.runCatching {
 //            val data = eduMainRepository.getBanners()
 //            if (data is Result.Success) emit(data.data
+            emit(getBanners())
         }
     }
-    val mmBanners = MutableLiveData<List<BannerData>>()
+//    val mmBanners = MutableLiveData<List<BannerData>>()
 
 
-    fun getBanners(context: Context) {
-        val input = context.assets.open("banner.json")//传入文件名称 读取assets文件
+    fun getBanners(): List<BannerData> {
+        val input = App.CONTEXT.assets.open("banner.json")//传入文件名称 读取assets文件
         val results = StringBuilder()
         val inputString = BufferedReader(InputStreamReader(input)).useLines { lines ->
             lines.forEach { results.append(it) }
         }
 
         val type: Type = object : TypeToken<EduResponse<List<BannerData>>>() {}.type
-        mmBanners.value = Gson().fromJson<EduResponse<List<BannerData>>>(results.toString(), type).data
+        return Gson().fromJson<EduResponse<List<BannerData>>>(results.toString(), type).data
     }
 
     // xml界面中使用
@@ -97,7 +99,6 @@ class EduMainViewModel(
         _uiState.value = uiModel
     }
 
-
     data class CourseUiModel(
             val showLoading: Boolean, // 展示loading
             val showError: String?, // 错误信息
@@ -106,6 +107,5 @@ class EduMainViewModel(
             val isRefresh: Boolean, // 刷新
             val needLogin: Boolean? = null
     )
-
 
 }

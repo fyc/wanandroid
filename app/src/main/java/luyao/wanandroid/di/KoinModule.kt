@@ -5,6 +5,8 @@ import luyao.wanandroid.model.api.WanRetrofitClient
 import luyao.wanandroid.model.api.WanService
 import luyao.wanandroid.model.repository.*
 import luyao.wanandroid.ui.login.LoginViewModel
+import luyao.wanandroid.ui.main.EduMainRepository
+import luyao.wanandroid.ui.main.EduMainViewModel
 import luyao.wanandroid.ui.navigation.NavigationViewModel
 import luyao.wanandroid.ui.project.ProjectViewModel
 import luyao.wanandroid.ui.search.SearchViewModel
@@ -27,6 +29,8 @@ val viewModelModule = module {
     viewModel { ProjectViewModel(get()) }
     viewModel { SearchViewModel(get(), get()) }
     viewModel { ShareViewModel(get()) }
+    viewModel { EduMainViewModel(get()) }
+
 }
 
 val repositoryModule = module {
@@ -41,6 +45,7 @@ val repositoryModule = module {
     single { NavigationRepository() }
     single { SearchRepository() }
     single { ShareRepository() }
+    single { EduMainRepository() }
 }
 
 val appModule = listOf(viewModelModule, repositoryModule)
