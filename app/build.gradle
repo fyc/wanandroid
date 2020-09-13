@@ -90,4 +90,6 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
     implementation "com.tencent.tbs.tbssdk:sdk:43697"
 
+    implementation 'com.contrarywind:Android-PickerView:4.1.9'
+
 }

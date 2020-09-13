@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--足迹顶部标题栏自定义属性-->
+    <declare-styleable name="EduBarView">
+        <attr name="titleLeftText" format="string"/>
+        <attr name="titleLeftTextColor" format="color"/>
+        <attr name="titleLeftTextSize" format="dimension"/>
+
+        <attr name="titleCenterTextColor" format="color"/>
+        <attr name="titleCenterTitle" format="string"/>
+        <attr name="titleCenterTextSize" format="dimension"/>
+
+        <attr name="titleCenterText2Color" format="color"/>
+        <attr name="titleCenterTitle2" format="string"/>
+        <attr name="titleCenterText2Size" format="dimension"/>
+        <attr name="titleCenterTitle2Visibility" format="string"/>
+        <attr name="titleCenterTitle2DrawableLeft" format="reference"/>
+
+        <attr name="titleRightTextColor" format="color"/>
+        <attr name="titleRightText" format="string"/>
+        <attr name="titleRightTextSize" format="dimension"/>
+
+        <attr name="titleLeftDrawble" format="reference"/>
+        <attr name="titleRightDrawable" format="reference"/>
+        <attr name="titleCenterLeftDrawbleVisibility" format="string"/>
+        <attr name="titleCenterRightDrawableVisibility" format="string"/>
+    </declare-styleable>
+</resources>

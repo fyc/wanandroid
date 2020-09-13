@@ -27,9 +27,7 @@ import java.lang.reflect.Type
  * Created by luyao
  * on 2019/10/15 10:46
  */
-class EduMainViewModel(
-        private val eduMainRepository: EduMainRepository
-) : BaseViewModel() {
+class EduMainViewModel(private val eduMainRepository: EduMainRepository) : BaseViewModel() {
 
     private val _uiState = MutableLiveData<CourseUiModel>()
     val uiState: LiveData<CourseUiModel>

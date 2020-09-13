@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:binding="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="viewModel"
             type="luyao.wanandroid.ui.main.EduMainViewModel" />
-        
+
         <variable
-            name="adapter"
+            name="doorToDoorAdapter"
+            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
+
+        <variable
+            name="courseAdapter"
             type="androidx.recyclerview.widget.RecyclerView.Adapter" />
     </data>
+
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/homeRefreshLayout"
@@ -19,19 +26,97 @@
         binding:isRefresh="@{viewModel.uiState.showLoading}"
         binding:onRefresh="@{viewModel.refreshEduCourse}">
 
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/courseRecycleView"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            binding:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:layout_marginTop="20dp"
-            itemBottomPadding="10dp"
-            adapter="@{adapter}">
+            android:layout_height="match_parent">
 
-        </androidx.recyclerview.widget.RecyclerView>
+            <luyao.wanandroid.ui.main.EduTitleBar
+                android:id="@+id/title_bar"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="#4588f5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
 
+                app:titleCenterTextColor="#FFF"
+                app:titleCenterTextSize="14dp"
+                app:titleCenterTitle="首页"
+                app:titleCenterTitle2Visibility="gone"
+                app:titleLeftText="选择"
+                app:titleRightDrawable="@drawable/theme_toolbar_btn_forward_fg_normal0" />
+
+            <com.youth.banner.Banner
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title_bar" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/doorToDoorRecycleView"
+                adapter="@{doorToDoorAdapter}"
+                itemBottomPadding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/banner" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/articleBrcConstraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="8dp"
+                android:background="@color/colorAccent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/doorToDoorRecycleView">
+
+                <ImageView
+                    android:id="@+id/iconBrc"
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/home_hot"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/subjectName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="一分钟了解平台，得提分秘籍"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@+id/iconBrc"
+                    app:layout_constraintStart_toEndOf="@+id/iconBrc"
+                    app:layout_constraintTop_toTopOf="@+id/iconBrc" />
+
+                <ImageView
+                    android:id="@+id/subjectImg"
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/theme_toolbar_btn_forward_fg_normal0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/courseRecycleView"
+                adapter="@{courseAdapter}"
+                itemBottomPadding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/articleBrcConstraintLayout"
+                binding:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </layout>

@@ -6,6 +6,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_bottom_navigation.*
 import luyao.mvvm.core.base.BaseFragment
 import luyao.wanandroid.R
+import luyao.wanandroid.ui.main.EduMainFragment
 import luyao.wanandroid.ui.main.MainFragment
 import luyao.wanandroid.ui.profile.ProfileFragment
 import luyao.wanandroid.ui.project.BlogFragment
@@ -18,7 +19,7 @@ import luyao.wanandroid.ui.search.SearchFragment
 class TabFragment : BaseFragment() {
 
     private val fragmentList = arrayListOf<Fragment>()
-    private val mainFragment by lazy { MainFragment() }
+    private val mainFragment by lazy { EduMainFragment() }
     private val blogFragment by lazy { BlogFragment() }
     private val searchFragment by lazy { SearchFragment() }
     private val projectFragment by lazy { ProjectFragment() }
