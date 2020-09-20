@@ -1,23 +1,22 @@
 package luyao.wanandroid.ui.main
 
+import android.util.Log
+import android.view.MotionEvent
 import android.view.View
-import android.view.ViewGroup
-import android.widget.LinearLayout
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bigkoo.pickerview.builder.OptionsPickerBuilder
-import com.bigkoo.pickerview.listener.OnOptionsSelectListener
-import com.bigkoo.pickerview.view.OptionsPickerView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.youth.banner.BannerConfig
 import kotlinx.android.synthetic.main.fragment_edu_main.*
 import kotlinx.coroutines.GlobalScope
 import luyao.mvvm.core.base.BaseVMFragment
-import luyao.util.ktx.ext.dp2px
 import luyao.util.ktx.ext.toast
 import luyao.wanandroid.R
 import luyao.wanandroid.address.AddressSelector
@@ -36,6 +35,7 @@ class EduMainFragment : BaseVMFragment<FragmentEduMainBinding>(R.layout.fragment
     private val eduMainViewModel by viewModel<EduMainViewModel>()
 
     private val isLogin by Preference(Preference.IS_LOGIN, false)
+//    private var mDoorToDoorSpinnerAdapter: ArrayAdapter<String>? = null
     private val mDoorToDoorAdapter by lazy { DoorToDoorAdapter() }
     private val mCourseAdapter by lazy { CourseAdapter() }
     private val bannerImages = mutableListOf<String>()
@@ -50,6 +50,7 @@ class EduMainFragment : BaseVMFragment<FragmentEduMainBinding>(R.layout.fragment
             courseAdapter = mCourseAdapter
         }
         initTitleBar()
+        initDoorToDoorSpinner()
         initRecycleView()
         initBanner()
     }
@@ -69,15 +70,15 @@ class EduMainFragment : BaseVMFragment<FragmentEduMainBinding>(R.layout.fragment
                 it.showSuccess?.let { list ->
                     mCourseAdapter.run {
                         this.setEnableLoadMore(false)
-                        if (it.isRefresh) replaceData(list.datas)
-                        else addData(list.datas)
+                        if (it.isRefresh) replaceData(list)
+                        else addData(list)
                         setEnableLoadMore(true)
                         loadMoreComplete()
                     }
                     mDoorToDoorAdapter.run {
                         this.setEnableLoadMore(false)
-                        if (it.isRefresh) replaceData(list.datas)
-                        else addData(list.datas)
+                        if (it.isRefresh) replaceData(list)
+                        else addData(list)
                         setEnableLoadMore(true)
                         loadMoreComplete()
                     }
@@ -135,8 +136,8 @@ class EduMainFragment : BaseVMFragment<FragmentEduMainBinding>(R.layout.fragment
 
         mCourseAdapter.run {
             setOnItemClickListener { _, _, position ->
-                val bundle = bundleOf(BrowserActivity.URL to mCourseAdapter.data[position].link)
-                NavHostFragment.findNavController(this@EduMainFragment).navigate(R.id.action_tab_to_browser, bundle)
+//                val bundle = bundleOf(BrowserActivity.URL to mCourseAdapter.data[position].link)
+//                NavHostFragment.findNavController(this@EduMainFragment).navigate(R.id.action_tab_to_browser, bundle)
             }
             onItemChildClickListener = this@EduMainFragment.onItemChildClickListener
 //            if (headerLayoutCount > 0) removeAllHeaderView()
@@ -171,6 +172,49 @@ class EduMainFragment : BaseVMFragment<FragmentEduMainBinding>(R.layout.fragment
                 .setBannerStyle(BannerConfig.NUM_INDICATOR_TITLE)
                 .setDelayTime(3000)
         banner.start()
+    }
+
+//    private val list: MutableList<String> = ArrayList()
+
+    fun initDoorToDoorSpinner() {
+        //第一步：定义下拉列表内容
+        val grade = resources.getStringArray(R.array.Grade)
+        //第二步：为下拉列表定义一个适配器
+        val mDoorToDoorSpinnerAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, grade)
+        //第三步：设置下拉列表下拉时的菜单样式
+        mDoorToDoorSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        //第四步：将适配器添加到下拉列表上
+        binding.doorToDoorSpinner.adapter = mDoorToDoorSpinnerAdapter
+        //第五步：添加监听器，为下拉列表设置事件的响应
+        binding.doorToDoorSpinner.onItemSelectedListener = object :
+                AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>,
+                                        view: View, position: Int, id: Long) {
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // write code to perform some action
+            }
+        }
+//        binding.doorToDoorSpinner.onItemClickListener = (AdapterView.OnItemClickListener { parent, view, position, id -> TODO("Not yet implemented") })
+        //将spinnertext添加到OnTouchListener对内容选项触屏事件处理
+//        binding.doorToDoorSpinner.setOnTouchListener(object : OnTouchListener() {
+//            fun onTouch(v: View, event: MotionEvent?): Boolean {
+//                // TODO Auto-generated method stub
+//                // 将mySpinner隐藏
+//                v.visibility = View.INVISIBLE
+//                Log.i("spinner", "Spinner Touch事件被触发!")
+//                return false
+//            }
+//        })
+        //焦点改变事件处理
+        binding.doorToDoorSpinner.setOnFocusChangeListener(object : View.OnFocusChangeListener {
+            override fun onFocusChange(v: View, hasFocus: Boolean) {
+                // TODO Auto-generated method stub
+                v.visibility = View.VISIBLE
+                Log.i("spinner", "Spinner FocusChange事件被触发！")
+            }
+        })
     }
 
     private fun loadMore() {

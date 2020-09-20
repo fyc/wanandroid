@@ -11,26 +11,26 @@ import luyao.wanandroid.model.bean.Article
  * Created by luyao
  * on 2018/3/14 15:52
  */
-class CourseAdapter(layoutResId: Int = R.layout.item_article_constraint) : BaseBindAdapter<Article>(layoutResId, BR.article) {
+class CourseAdapter(layoutResId: Int = R.layout.item_course_constraint) : BaseBindAdapter<CourseData>(layoutResId, BR.courseData) {
 
-    private var showStar = true
+//    private var showStar = true
+//
+//    fun showStar(showStar: Boolean) {
+//        this.showStar = showStar
+//    }
 
-    fun showStar(showStar: Boolean) {
-        this.showStar = showStar
-    }
-
-    override fun convert(helper: BindViewHolder, item: Article) {
+    override fun convert(helper: BindViewHolder, item: CourseData) {
         super.convert(helper, item)
 //        helper.setText(R.id.articleTitle, if (fromN()) Html.fromHtml(item.title, Html.FROM_HTML_MODE_LEGACY) else Html.fromHtml(item.title))
 //                .setText(R.id.articleAuthor, item.author)
 //                .setText(R.id.articleTag, "${item.superChapterName ?: ""} ${item.chapterName}")
 //                .setText(R.id.articleTime, item.niceDate)
 //                .addOnClickListener(R.id.articleStar)
-        helper.addOnClickListener(R.id.articleStar)
-        if (showStar) helper.setImageResource(R.id.articleStar, if (item.collect) R.drawable.timeline_like_pressed else R.drawable.timeline_like_normal)
-        else helper.setVisible(R.id.articleStar, false)
-
-        helper.setText(R.id.articleAuthor, if (item.author.isBlank()) "分享者: ${item.shareUser}" else item.author)
+//        helper.addOnClickListener(R.id.articleStar)
+//        if (showStar) helper.setImageResource(R.id.articleStar, if (item.collect) R.drawable.timeline_like_pressed else R.drawable.timeline_like_normal)
+//        else helper.setVisible(R.id.articleStar, false)
+//
+//        helper.setText(R.id.articleAuthor, if (item.author.isBlank()) "分享者: ${item.shareUser}" else item.author)
         Timer.stop(APP_START)
     }
 }

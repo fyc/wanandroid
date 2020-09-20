@@ -60,35 +60,61 @@ class EduMainViewModel(private val eduMainRepository: EduMainRepository) : BaseV
     val refreshEduCourse: () -> Unit = { getEduMainCourseList(true) }
 
 
-    fun getEduMainCourseList(isRefresh: Boolean = false) = getCourseList(isRefresh)
+    fun getEduMainCourseList(isRefresh: Boolean = false) = getCourseJson(isRefresh)
 
 
-    private fun getCourseList(isRefresh: Boolean = false) {
+//    private fun getCourseList(isRefresh: Boolean = false) {
+//        viewModelScope.launch(Dispatchers.Main) {
+//            emitCourseUiState(true)
+//            if (isRefresh) currentPage = 1
+//
+//            val result = eduMainRepository.getArticleList(currentPage)
+//
+//            if (result is Result.Success) {
+//                val list = result.data
+//                if (list.offset >= list.total) {
+//                    emitCourseUiState(showLoading = false, showEnd = true)
+//                    return@launch
+//                }
+//                currentPage++
+//                emitCourseUiState(showLoading = false, showSuccess = list, isRefresh = isRefresh)
+//
+//            } else if (result is Result.Error) {
+//                emitCourseUiState(showLoading = false, showError = result.exception.message)
+//            }
+//        }
+//    }
+
+    private fun getCourseJson(isRefresh: Boolean = false) {
         viewModelScope.launch(Dispatchers.Main) {
             emitCourseUiState(true)
             if (isRefresh) currentPage = 1
 
-            val result = eduMainRepository.getArticleList(currentPage)
-
-            if (result is Result.Success) {
-                val list = result.data
-                if (list.offset >= list.total) {
-                    emitCourseUiState(showLoading = false, showEnd = true)
-                    return@launch
-                }
-                currentPage++
-                emitCourseUiState(showLoading = false, showSuccess = list, isRefresh = isRefresh)
-
-            } else if (result is Result.Error) {
-                emitCourseUiState(showLoading = false, showError = result.exception.message)
+//            val result = eduMainRepository.getArticleList(currentPage)
+            val input = App.CONTEXT.assets.open("course.json")//传入文件名称 读取assets文件
+            val results = StringBuilder()
+            val inputString = BufferedReader(InputStreamReader(input)).useLines { lines ->
+                lines.forEach { results.append(it) }
             }
+
+            val type: Type = object : TypeToken<EduResponse<List<CourseData>>>() {}.type
+            val result = Gson().fromJson<EduResponse<List<CourseData>>>(results.toString(), type).data
+
+            val list = result
+//            if (list.offset >= list.total) {
+//                emitCourseUiState(showLoading = false, showEnd = true)
+//                return@launch
+//            }
+            currentPage++
+            emitCourseUiState(showLoading = false, showSuccess = list, isRefresh = isRefresh)
         }
+
     }
 
     private fun emitCourseUiState(
             showLoading: Boolean = false,
             showError: String? = null,
-            showSuccess: ArticleList? = null,
+            showSuccess: List<CourseData>? = null,
             showEnd: Boolean = false,
             isRefresh: Boolean = false,
             needLogin: Boolean? = null
@@ -100,7 +126,7 @@ class EduMainViewModel(private val eduMainRepository: EduMainRepository) : BaseV
     data class CourseUiModel(
             val showLoading: Boolean, // 展示loading
             val showError: String?, // 错误信息
-            val showSuccess: ArticleList?, // 正确的结果
+            val showSuccess: List<CourseData>?, // 正确的结果
             val showEnd: Boolean, // 加载更多
             val isRefresh: Boolean, // 刷新
             val needLogin: Boolean? = null

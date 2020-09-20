@@ -26,97 +26,166 @@
         binding:isRefresh="@{viewModel.uiState.showLoading}"
         binding:onRefresh="@{viewModel.refreshEduCourse}">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <luyao.wanandroid.ui.main.EduTitleBar
-                android:id="@+id/title_bar"
+            <com.google.android.material.appbar.AppBarLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="#4588f5"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_height="wrap_content">
 
-                app:titleCenterTextColor="#FFF"
-                app:titleCenterTextSize="14dp"
-                app:titleCenterTitle="首页"
-                app:titleCenterTitle2Visibility="gone"
-                app:titleLeftText="选择"
-                app:titleRightDrawable="@drawable/theme_toolbar_btn_forward_fg_normal0" />
-
-            <com.youth.banner.Banner
-                android:id="@+id/banner"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/title_bar" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/doorToDoorRecycleView"
-                adapter="@{doorToDoorAdapter}"
-                itemBottomPadding="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/banner" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/articleBrcConstraintLayout"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_margin="8dp"
-                android:background="@color/colorAccent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/doorToDoorRecycleView">
-
-                <ImageView
-                    android:id="@+id/iconBrc"
-                    android:layout_width="20dp"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/home_hot"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_scrollFlags="scroll|enterAlwaysCollapsed">
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/subjectName"
-                    android:layout_width="wrap_content"
+                    <luyao.wanandroid.ui.main.EduTitleBar
+                        android:id="@+id/title_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="#4588f5"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:titleCenterTextColor="#FFF"
+                        app:titleCenterTextSize="14dp"
+                        app:titleCenterTitle="首页"
+                        app:titleCenterTitle2Visibility="gone"
+                        app:titleLeftText="选择"
+                        app:titleRightDrawable="@drawable/theme_toolbar_btn_forward_fg_normal0" />
+
+                    <com.youth.banner.Banner
+                        android:id="@+id/banner"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/title_bar" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/titleDoorToDoor"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_margin="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/banner">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="上门一对一"
+                            android:textSize="16dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <Spinner
+                            android:id="@+id/doorToDoorSpinner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/doorToDoorRecycleView"
+                        adapter="@{doorToDoorAdapter}"
+                        itemBottomPadding="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/titleDoorToDoor" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/brcConstraintLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_margin="8dp"
+                        android:background="#e99d42"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/doorToDoorRecycleView">
+
+                        <ImageView
+                            android:id="@+id/iconBrc"
+                            android:layout_width="20dp"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/home_hot"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/brcContent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="一分钟了解平台，得提分秘籍"
+                            android:textColor="@color/white"
+                            app:layout_constraintBottom_toBottomOf="@+id/iconBrc"
+                            app:layout_constraintStart_toEndOf="@+id/iconBrc"
+                            app:layout_constraintTop_toTopOf="@+id/iconBrc" />
+
+                        <ImageView
+                            android:id="@+id/brcImg"
+                            android:layout_width="20dp"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/theme_toolbar_btn_forward_fg_normal0"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/titleCourse"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="一分钟了解平台，得提分秘籍"
-                    android:textColor="@color/white"
-                    app:layout_constraintBottom_toBottomOf="@+id/iconBrc"
-                    app:layout_constraintStart_toEndOf="@+id/iconBrc"
-                    app:layout_constraintTop_toTopOf="@+id/iconBrc" />
-
-                <ImageView
-                    android:id="@+id/subjectImg"
-                    android:layout_width="20dp"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/theme_toolbar_btn_forward_fg_normal0"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_margin="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/brcConstraintLayout">
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="名师推荐"
+                        android:textSize="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/titleCourseMore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/theme_toolbar_btn_forward_fg_normal0"
+                        android:text="查看更多"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.appbar.AppBarLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/courseRecycleView"
                 adapter="@{courseAdapter}"
                 itemBottomPadding="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/articleBrcConstraintLayout"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 binding:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </layout>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="courseData"
+            type="luyao.wanandroid.ui.main.CourseData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingLeft="15dp"
+        android:paddingTop="10dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="10dp">
+
+        <ImageView
+            android:id="@+id/portraitImg"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/home_hot"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/titleName"
+            style="@style/Article_text"
+            android:text="@{courseData.title+courseData.name}"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toRightOf="@+id/portraitImg"
+            app:layout_constraintTop_toTopOf="@+id/portraitImg"
+            tools:text="小初数学王老师" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/teachersTags"
+            style="@style/Article_text"
+            android:background="@drawable/bg_teachers_tag"
+            android:text="@{courseData.title+courseData.name}"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintLeft_toRightOf="@+id/titleName"
+            app:layout_constraintTop_toTopOf="@+id/portraitImg"
+            tools:text="五星教师" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/teachingDec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="8dp"
+            android:text="@{courseData.teachingAge+'|'+courseData.teachingQuantity}"
+            android:textColor="#333333"
+            android:textSize="14sp"
+            app:htmlText="@{courseData.teachingAge+'|'+courseData.teachingQuantity}"
+            app:layout_constraintLeft_toLeftOf="@+id/titleName"
+            app:layout_constraintTop_toBottomOf="@+id/titleName"
+            tools:text="教龄15年|已授434课" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/courseTags1"
+            style="@style/Article_text"
+            android:background="@drawable/bg_course_tag"
+            android:text="@{courseData.title+courseData.name}"
+            android:textColor="#e99d42"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/teachingDec"
+            app:layout_constraintTop_toBottomOf="@+id/teachingDec"
+            tools:text="五星教师" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/courseTags2"
+            style="@style/Article_text"
+            android:background="@drawable/bg_course_tag"
+            android:text="@{courseData.title+courseData.name}"
+            android:textColor="#e99d42"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/courseTags1"
+            app:layout_constraintTop_toBottomOf="@+id/teachingDec"
+            tools:text="五星教师" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/price"
+            style="@style/Article_text"
+            android:text="@{'¥'+String.valueOf(courseData.price)}"
+            android:textColor="@color/red"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/destailImg"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="¥198" />
+
+        <ImageView
+            android:id="@+id/destailImg"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/theme_toolbar_btn_forward_fg_normal0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
