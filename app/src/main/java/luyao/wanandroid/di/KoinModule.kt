@@ -4,6 +4,8 @@ import luyao.wanandroid.CoroutinesDispatcherProvider
 import luyao.wanandroid.model.api.WanRetrofitClient
 import luyao.wanandroid.model.api.WanService
 import luyao.wanandroid.model.repository.*
+import luyao.wanandroid.ui.learning.LearningCenterRepository
+import luyao.wanandroid.ui.learning.LearningCenterViewModel
 import luyao.wanandroid.ui.login.LoginViewModel
 import luyao.wanandroid.ui.main.EduMainRepository
 import luyao.wanandroid.ui.main.EduMainViewModel
@@ -22,7 +24,7 @@ import org.koin.dsl.module
  */
 
 val viewModelModule = module {
-    viewModel { LoginViewModel(get(),get()) }
+    viewModel { LoginViewModel(get(), get()) }
     viewModel { ArticleViewModel(get(), get(), get(), get(), get()) }
     viewModel { SystemViewModel(get(), get()) }
     viewModel { NavigationViewModel(get()) }
@@ -30,7 +32,7 @@ val viewModelModule = module {
     viewModel { SearchViewModel(get(), get()) }
     viewModel { ShareViewModel(get()) }
     viewModel { EduMainViewModel(get()) }
-
+    viewModel { LearningCenterViewModel(get()) }
 }
 
 val repositoryModule = module {
@@ -46,6 +48,7 @@ val repositoryModule = module {
     single { SearchRepository() }
     single { ShareRepository() }
     single { EduMainRepository() }
+    single { LearningCenterRepository() }
 }
 
 val appModule = listOf(viewModelModule, repositoryModule)

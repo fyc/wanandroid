@@ -2,6 +2,7 @@ package luyao.wanandroid.model.api
 
 import luyao.wanandroid.databean.EduResponse
 import luyao.wanandroid.model.bean.*
+import luyao.wanandroid.ui.learning.LearningCenterBannerData
 import luyao.wanandroid.ui.main.BannerData
 import retrofit2.http.*
 
@@ -82,5 +83,8 @@ interface EduService {
     @FormUrlEncoded
     @POST("/lg/user_article/add/json")
     suspend fun shareArticle(@Field("title") title: String, @Field("link") url: String): EduResponse<String>
+
+    @GET("/banner/json")
+    suspend fun getLearningCenterBanner(): EduResponse<List<LearningCenterBannerData>>
 
 }

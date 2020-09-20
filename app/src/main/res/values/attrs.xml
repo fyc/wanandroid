@@ -9,12 +9,10 @@
         <attr name="titleCenterTextColor" format="color"/>
         <attr name="titleCenterTitle" format="string"/>
         <attr name="titleCenterTextSize" format="dimension"/>
-        <attr name="titleCenterTitleVisibility" format="string"/>
 
         <attr name="titleCenterText2Color" format="color"/>
         <attr name="titleCenterTitle2" format="string"/>
         <attr name="titleCenterText2Size" format="dimension"/>
-        <attr name="titleCenterTitle2Visibility" format="string"/>
         <attr name="titleCenterTitle2DrawableLeft" format="reference"/>
 
         <attr name="titleRightTextColor" format="color"/>

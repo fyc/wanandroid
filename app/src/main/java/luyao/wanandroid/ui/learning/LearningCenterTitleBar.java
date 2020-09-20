@@ -1,4 +1,4 @@
-package luyao.wanandroid.ui.main;
+package luyao.wanandroid.ui.learning;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -20,23 +20,23 @@ import luyao.wanandroid.R;
  * Created by fangyc on 2018/7/19.
  */
 
-public class EduTitleBar extends ConstraintLayout {
+public class LearningCenterTitleBar extends ConstraintLayout {
     private ConstraintLayout layout_left, layout_right;
     private TextView tv_left, tv_title, tv_title2, tv_right;
     private ImageView iv_left, iv_right;
     private onViewClick mClick;
 
-    public EduTitleBar(Context context) {
+    public LearningCenterTitleBar(Context context) {
         this(context, null);
     }
 
-    public EduTitleBar(Context context, AttributeSet attrs) {
+    public LearningCenterTitleBar(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public EduTitleBar(final Context context, AttributeSet attrs, int defStyleAttr) {
+    public LearningCenterTitleBar(final Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        LayoutInflater.from(context).inflate(R.layout.edu_title_bar, this);
+        LayoutInflater.from(context).inflate(R.layout.learning_center_title_bar, this);
         initView();
         TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.EduBarView, defStyleAttr, 0);
         int count = array.getIndexCount();
@@ -68,10 +68,6 @@ public class EduTitleBar extends ConstraintLayout {
                 case R.styleable.EduBarView_titleCenterTextSize:
                     tv_title.setTextSize(TypedValue.COMPLEX_UNIT_PX, array.getDimensionPixelSize(attr, 0));
                     break;
-//                case R.styleable.EduBarView_titleCenterTitleVisibility:
-//                    String visible = array.getString(attr);
-//                    setVisibility(tv_title,visible);
-//                    break;
                 case R.styleable.EduBarView_titleCenterText2Color:
                     tv_title2.setTextColor(array.getColor(attr, Color.BLACK));
                     break;
@@ -84,10 +80,6 @@ public class EduTitleBar extends ConstraintLayout {
 //                    int size = array.getDimensionPixelSize(attr, 0);
                     tv_title2.setTextSize(TypedValue.COMPLEX_UNIT_PX, array.getDimensionPixelSize(attr, 0));
                     break;
-//                case R.styleable.EduBarView_titleCenterTitle2Visibility:
-//                    String visible2 = array.getString(attr);
-//                    setVisibility(tv_title2,visible2);
-//                    break;
                 case R.styleable.EduBarView_titleCenterTitle2DrawableLeft:
                     Drawable drawableLeft = null;
                     drawableLeft = array.getDrawable(attr);
@@ -111,14 +103,6 @@ public class EduTitleBar extends ConstraintLayout {
                     tv_right.setTextSize(TypedValue.COMPLEX_UNIT_PX, array.getDimensionPixelSize(attr, 0));
                     break;
 
-//                case R.styleable.EduBarView_titleCenterLeftDrawbleVisibility:
-//                    String visibleLeft = array.getString(attr);
-//                    setVisibility(iv_left,visibleLeft);
-//                    break;
-//                case R.styleable.EduBarView_titleCenterRightDrawableVisibility:
-//                    String visible3 = array.getString(attr);
-//                    setVisibility(iv_right,visible3);
-//                    break;
             }
         }
         array.recycle();
@@ -173,6 +157,8 @@ public class EduTitleBar extends ConstraintLayout {
         tv_right.setVisibility(GONE);
         iv_left.setVisibility(GONE);
         iv_right.setVisibility(GONE);
+//        layout_left.setVisibility(GONE);
+//        layout_right.setVisibility(GONE);
     }
 
     public void setOnViewClick(onViewClick click) {

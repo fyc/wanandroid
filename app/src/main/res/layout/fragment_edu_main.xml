@@ -51,9 +51,6 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:titleCenterTextColor="#FFF"
                         app:titleCenterTextSize="14dp"
-                        app:titleCenterTitle="首页"
-                        app:titleCenterTitle2Visibility="gone"
-                        app:titleCenterTitleVisibility="gone"
                         app:titleLeftDrawble="@drawable/ic_adress"
                         app:titleLeftText="选择"
                         app:titleRightDrawable="@drawable/ic_message" />
