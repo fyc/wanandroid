@@ -9,6 +9,7 @@
         <attr name="titleCenterTextColor" format="color"/>
         <attr name="titleCenterTitle" format="string"/>
         <attr name="titleCenterTextSize" format="dimension"/>
+        <attr name="titleCenterTitleVisibility" format="string"/>
 
         <attr name="titleCenterText2Color" format="color"/>
         <attr name="titleCenterTitle2" format="string"/>

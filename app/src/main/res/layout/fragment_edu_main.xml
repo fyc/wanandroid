@@ -33,7 +33,8 @@
 
             <com.google.android.material.appbar.AppBarLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -43,8 +44,8 @@
                     <luyao.wanandroid.ui.main.EduTitleBar
                         android:id="@+id/title_bar"
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:background="#4588f5"
+                        android:layout_height="50dp"
+                        android:background="@android:color/transparent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -52,8 +53,10 @@
                         app:titleCenterTextSize="14dp"
                         app:titleCenterTitle="首页"
                         app:titleCenterTitle2Visibility="gone"
+                        app:titleCenterTitleVisibility="gone"
+                        app:titleLeftDrawble="@drawable/ic_adress"
                         app:titleLeftText="选择"
-                        app:titleRightDrawable="@drawable/theme_toolbar_btn_forward_fg_normal0" />
+                        app:titleRightDrawable="@drawable/ic_message" />
 
                     <com.youth.banner.Banner
                         android:id="@+id/banner"

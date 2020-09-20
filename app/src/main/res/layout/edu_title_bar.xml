@@ -9,9 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_left"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="horizontal"
+        android:layout_height="0dp"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,15 +42,15 @@
 
     <LinearLayout
         android:id="@+id/layout_center"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/layout_right"
+        app:layout_constraintStart_toEndOf="@+id/layout_left"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
@@ -70,13 +68,21 @@
             android:gravity="center"
             android:maxLength="10"
             android:maxLines="1" />
+
+        <TextView
+            android:id="@+id/tv_title_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_edu_search"
+            android:gravity="center"
+            android:text="搜索"
+            tools:text="搜索" />
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_right"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:gravity="center"
+        android:layout_height="0dp"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
         app:layout_constraintBottom_toBottomOf="parent"

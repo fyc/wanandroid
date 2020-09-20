@@ -56,7 +56,6 @@ public class EduTitleBar extends ConstraintLayout {
                 case R.styleable.EduBarView_titleLeftText:
                     tv_left.setText(array.getString(attr));
                     break;
-
                 case R.styleable.EduBarView_titleCenterTextColor:
                     tv_title.setTextColor(array.getColor(attr, Color.BLACK));
                     break;
@@ -66,7 +65,10 @@ public class EduTitleBar extends ConstraintLayout {
                 case R.styleable.EduBarView_titleCenterTextSize:
                     tv_title.setTextSize(TypedValue.COMPLEX_UNIT_PX, array.getDimensionPixelSize(attr, 0));
                     break;
-
+                case R.styleable.EduBarView_titleCenterTitleVisibility:
+                    String visible = array.getString(attr);
+                    setVisibility(tv_title,visible);
+                    break;
                 case R.styleable.EduBarView_titleCenterText2Color:
                     tv_title2.setTextColor(array.getColor(attr, Color.BLACK));
                     break;
@@ -79,8 +81,8 @@ public class EduTitleBar extends ConstraintLayout {
                     tv_title2.setTextSize(TypedValue.COMPLEX_UNIT_PX, array.getDimensionPixelSize(attr, 0));
                     break;
                 case R.styleable.EduBarView_titleCenterTitle2Visibility:
-                    String visible = array.getString(attr);
-                    setVisibility(tv_title2,visible);
+                    String visible2 = array.getString(attr);
+                    setVisibility(tv_title2,visible2);
                     break;
                 case R.styleable.EduBarView_titleCenterTitle2DrawableLeft:
                     Drawable drawableLeft = null;
@@ -104,8 +106,8 @@ public class EduTitleBar extends ConstraintLayout {
                     break;
 
                 case R.styleable.EduBarView_titleCenterLeftDrawbleVisibility:
-                    String visible2 = array.getString(attr);
-                    setVisibility(iv_left,visible2);
+                    String visibleLeft = array.getString(attr);
+                    setVisibility(iv_left,visibleLeft);
                     break;
                 case R.styleable.EduBarView_titleCenterRightDrawableVisibility:
                     String visible3 = array.getString(attr);
