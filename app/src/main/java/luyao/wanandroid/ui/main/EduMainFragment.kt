@@ -1,18 +1,16 @@
 package luyao.wanandroid.ui.main
 
 import android.util.Log
-import android.view.MotionEvent
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chad.library.adapter.base.BaseQuickAdapter
+import com.google.android.material.appbar.AppBarLayout
 import com.youth.banner.BannerConfig
 import kotlinx.android.synthetic.main.fragment_edu_main.*
 import kotlinx.coroutines.GlobalScope
@@ -35,7 +33,8 @@ class EduMainFragment : BaseVMFragment<FragmentEduMainBinding>(R.layout.fragment
     private val eduMainViewModel by viewModel<EduMainViewModel>()
 
     private val isLogin by Preference(Preference.IS_LOGIN, false)
-//    private var mDoorToDoorSpinnerAdapter: ArrayAdapter<String>? = null
+
+    //    private var mDoorToDoorSpinnerAdapter: ArrayAdapter<String>? = null
     private val mDoorToDoorAdapter by lazy { DoorToDoorAdapter() }
     private val mCourseAdapter by lazy { CourseAdapter() }
     private val bannerImages = mutableListOf<String>()
@@ -145,6 +144,14 @@ class EduMainFragment : BaseVMFragment<FragmentEduMainBinding>(R.layout.fragment
             setLoadMoreView(CustomLoadMoreView())
             setOnLoadMoreListener({ loadMore() }, courseRecycleView)
         }
+        //SwipeRefreshLayout和CoordinatorLayout嵌套滑动冲突问题解决
+        binding.appbarLayout.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, i ->
+            if (i >= 0) {
+                binding.homeRefreshLayout.setEnabled(true) //当滑动到顶部的时候开启
+            } else {
+                binding.homeRefreshLayout.setEnabled(false) //否则关闭
+            }
+        })
     }
 
     private fun initBanner() {
