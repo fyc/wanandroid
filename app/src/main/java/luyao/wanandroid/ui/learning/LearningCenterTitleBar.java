@@ -3,6 +3,7 @@ package luyao.wanandroid.ui.learning;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -58,6 +59,9 @@ public class LearningCenterTitleBar extends ConstraintLayout {
                     tv_left.setVisibility(VISIBLE);
                     tv_left.setText(array.getString(attr));
                     break;
+                case R.styleable.EduBarView_titleLeftTextStyle:
+                    setTypeface(tv_left, array.getString(attr));
+                    break;
                 case R.styleable.EduBarView_titleCenterTextColor:
                     tv_title.setTextColor(array.getColor(attr, Color.BLACK));
                     break;
@@ -67,6 +71,9 @@ public class LearningCenterTitleBar extends ConstraintLayout {
                     break;
                 case R.styleable.EduBarView_titleCenterTextSize:
                     tv_title.setTextSize(TypedValue.COMPLEX_UNIT_PX, array.getDimensionPixelSize(attr, 0));
+                    break;
+                case R.styleable.EduBarView_titleCenterTextStyle:
+                    setTypeface(tv_title, array.getString(attr));
                     break;
                 case R.styleable.EduBarView_titleCenterText2Color:
                     tv_title2.setTextColor(array.getColor(attr, Color.BLACK));
@@ -87,7 +94,9 @@ public class LearningCenterTitleBar extends ConstraintLayout {
                     drawableLeft.setBounds(0, 0, drawableLeft.getMinimumWidth(), drawableLeft.getMinimumHeight());
                     tv_title2.setCompoundDrawables(drawableLeft, null, null, null);
                     break;
-
+                case R.styleable.EduBarView_titleCenterTitle2TextStyle:
+                    setTypeface(tv_title2, array.getString(attr));
+                    break;
                 case R.styleable.EduBarView_titleRightDrawable:
                     iv_right.setVisibility(VISIBLE);
                     iv_right.setImageResource(array.getResourceId(attr, 0));
@@ -102,7 +111,9 @@ public class LearningCenterTitleBar extends ConstraintLayout {
                 case R.styleable.EduBarView_titleRightTextSize:
                     tv_right.setTextSize(TypedValue.COMPLEX_UNIT_PX, array.getDimensionPixelSize(attr, 0));
                     break;
-
+                case R.styleable.EduBarView_titleRightTextStyle:
+                    setTypeface(tv_right, array.getString(attr));
+                    break;
             }
         }
         array.recycle();
@@ -123,7 +134,7 @@ public class LearningCenterTitleBar extends ConstraintLayout {
     }
 
 
-    private void setVisibility(View view,String visible){
+    private void setVisibility(View view, String visible) {
         visible = TextUtils.isEmpty(visible) ? "visible" : visible;
         switch (visible) {
             case "gone":
@@ -137,6 +148,23 @@ public class LearningCenterTitleBar extends ConstraintLayout {
                 break;
             default:
                 view.setVisibility(View.VISIBLE);
+                break;
+        }
+    }
+
+    private void setTypeface(TextView view, String style) {
+        switch (style) {
+            case "bold":
+                view.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+                break;
+            case "normal":
+                view.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                break;
+            case "italic":
+                view.setTypeface(Typeface.defaultFromStyle(Typeface.ITALIC));
+                break;
+            default:
+                view.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
                 break;
         }
     }

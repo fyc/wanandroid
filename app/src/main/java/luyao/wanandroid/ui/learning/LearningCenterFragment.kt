@@ -6,7 +6,6 @@ import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.youth.banner.BannerConfig
 import kotlinx.android.synthetic.main.fragment_edu_main.*
 import luyao.mvvm.core.base.BaseVMFragment
@@ -17,6 +16,7 @@ import luyao.wanandroid.ui.BrowserActivity
 import luyao.wanandroid.util.GlideImageLoader
 import luyao.wanandroid.util.Preference
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.util.*
 
 
 class LearningCenterFragment : BaseVMFragment<FragmentLearningCenterBinding>(R.layout.fragment_learning_center) {
@@ -37,10 +37,12 @@ class LearningCenterFragment : BaseVMFragment<FragmentLearningCenterBinding>(R.l
         initTitleBar()
         initRecycleView()
         initBanner()
+        initCardView()
     }
 
     override fun initData() {
         mViewModel.getAuxiliaryData()
+        mViewModel.getTableCourseData()
     }
 
     override fun startObserve() {
@@ -55,6 +57,13 @@ class LearningCenterFragment : BaseVMFragment<FragmentLearningCenterBinding>(R.l
             })
             mBanners.observe(viewLifecycleOwner, Observer { it ->
                 it?.let { setBanner(it) }
+            })
+
+            courseList.observe(viewLifecycleOwner, Observer {
+                binding.timeTable.run {
+                    //获取开学时间
+                    this.loadData(it)
+                }
             })
 
         }
@@ -84,7 +93,7 @@ class LearningCenterFragment : BaseVMFragment<FragmentLearningCenterBinding>(R.l
 
     private fun initBanner() {
 
-        banner.run {
+        binding.learningBanner.run {
             setBannerStyle(BannerConfig.NUM_INDICATOR_TITLE)
             setImageLoader(GlideImageLoader())
             setOnBannerListener { position ->
@@ -94,6 +103,16 @@ class LearningCenterFragment : BaseVMFragment<FragmentLearningCenterBinding>(R.l
             }
         }
     }
+    private fun initTimeTable() {
+
+    }
+
+    private fun initCardView() {
+
+        binding.courseNoticeCardView.setNoticeStatu()
+        binding.findTeacherCardView.setFindStatu()
+
+    }
 
     private fun setBanner(bannerList: List<LearningCenterBannerData>) {
         for (banner in bannerList) {
@@ -101,11 +120,11 @@ class LearningCenterFragment : BaseVMFragment<FragmentLearningCenterBinding>(R.l
             bannerTitles.add(banner.title)
             bannerUrls.add(banner.url)
         }
-        banner.setImages(bannerImages)
+        binding.learningBanner.setImages(bannerImages)
                 .setBannerTitles(bannerTitles)
                 .setBannerStyle(BannerConfig.NUM_INDICATOR_TITLE)
                 .setDelayTime(3000)
-        banner.start()
+        binding.learningBanner.start()
     }
 
 
@@ -115,11 +134,11 @@ class LearningCenterFragment : BaseVMFragment<FragmentLearningCenterBinding>(R.l
 
     override fun onStart() {
         super.onStart()
-        banner.startAutoPlay()
+        binding.learningBanner.startAutoPlay()
     }
 
     override fun onStop() {
         super.onStop()
-        banner.stopAutoPlay()
+        binding.learningBanner.stopAutoPlay()
     }
 }

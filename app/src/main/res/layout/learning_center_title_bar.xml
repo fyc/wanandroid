@@ -10,8 +10,6 @@
         android:id="@+id/layout_left"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -34,6 +32,7 @@
             android:gravity="center"
             android:maxLength="4"
             android:maxLines="1"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/iv_left"
@@ -75,8 +74,6 @@
         android:id="@+id/layout_right"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">

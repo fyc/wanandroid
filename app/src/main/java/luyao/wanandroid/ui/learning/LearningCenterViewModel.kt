@@ -19,6 +19,7 @@ import luyao.wanandroid.model.bean.ArticleList
 import luyao.wanandroid.model.bean.Banner
 import luyao.wanandroid.model.bean.User
 import luyao.wanandroid.model.repository.*
+import luyao.wanandroid.timetable.Course
 import luyao.wanandroid.ui.main.CourseData
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -31,6 +32,9 @@ import java.lang.reflect.Type
 class LearningCenterViewModel(private val repository: LearningCenterRepository) : BaseViewModel() {
 
     val auxiliaryDataList: MutableLiveData<List<AuxiliaryData>> = MutableLiveData()
+
+    val courseList: MutableLiveData<List<Course>> = MutableLiveData()
+
 
     val mBanners: LiveData<List<LearningCenterBannerData>> = liveData {
         kotlin.runCatching {
@@ -62,6 +66,23 @@ class LearningCenterViewModel(private val repository: LearningCenterRepository) 
             val result = Gson().fromJson<EduResponse<List<AuxiliaryData>>>(results.toString(), type).data
 
             auxiliaryDataList.value = result
+        }
+
+    }
+
+    fun getTableCourseData() {
+        viewModelScope.launch(Dispatchers.Main) {
+
+            val input = App.CONTEXT.assets.open("timetableCourse.json")//传入文件名称 读取assets文件
+            val results = StringBuilder()
+            val inputString = BufferedReader(InputStreamReader(input)).useLines { lines ->
+                lines.forEach { results.append(it) }
+            }
+
+            val type: Type = object : TypeToken<EduResponse<List<Course>>>() {}.type
+            val result = Gson().fromJson<EduResponse<List<Course>>>(results.toString(), type).data
+
+            courseList.value = result
         }
 
     }
