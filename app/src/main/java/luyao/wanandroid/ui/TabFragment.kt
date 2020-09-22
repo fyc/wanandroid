@@ -9,6 +9,7 @@ import luyao.wanandroid.R
 import luyao.wanandroid.ui.learning.LearningCenterFragment
 import luyao.wanandroid.ui.main.EduMainFragment
 import luyao.wanandroid.ui.main.MainFragment
+import luyao.wanandroid.ui.mine.MineFragment
 import luyao.wanandroid.ui.profile.ProfileFragment
 import luyao.wanandroid.ui.project.BlogFragment
 import luyao.wanandroid.ui.project.ProjectFragment
@@ -24,7 +25,7 @@ class TabFragment : BaseFragment() {
     private val blogFragment by lazy { LearningCenterFragment() }
     private val searchFragment by lazy { SearchFragment() }
     private val projectFragment by lazy { ProjectFragment() }
-    private val profileFragment by lazy { ProfileFragment() }
+    private val profileFragment by lazy { MineFragment() }
 
     init {
         fragmentList.run {

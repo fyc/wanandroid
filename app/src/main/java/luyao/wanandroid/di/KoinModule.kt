@@ -9,6 +9,7 @@ import luyao.wanandroid.ui.learning.LearningCenterViewModel
 import luyao.wanandroid.ui.login.LoginViewModel
 import luyao.wanandroid.ui.main.EduMainRepository
 import luyao.wanandroid.ui.main.EduMainViewModel
+import luyao.wanandroid.ui.mine.MineViewModel
 import luyao.wanandroid.ui.navigation.NavigationViewModel
 import luyao.wanandroid.ui.project.ProjectViewModel
 import luyao.wanandroid.ui.search.SearchViewModel
@@ -33,6 +34,7 @@ val viewModelModule = module {
     viewModel { ShareViewModel(get()) }
     viewModel { EduMainViewModel(get()) }
     viewModel { LearningCenterViewModel(get()) }
+    viewModel { MineViewModel(get()) }
 }
 
 val repositoryModule = module {
