@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="luyao.wanandroid.ui.found.FoundViewModel" />
+
+        <variable
+            name="messageAdapter"
+            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
+
+    </data>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/homeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        binding:isRefresh="@{viewModel.showLoading}"
+        binding:onRefresh="@{viewModel.refreshMessage}">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/messageRecycleView"
+        adapter="@{messageAdapter}"
+        itemBottomPadding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        binding:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</layout>

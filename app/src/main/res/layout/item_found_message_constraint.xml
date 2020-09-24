@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="messageData"
+            type="luyao.wanandroid.ui.found.MessageData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingLeft="15dp"
+        android:paddingTop="10dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="10dp">
+
+        <ImageView
+            android:id="@+id/portraitImg"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/home_hot"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/titleName"
+            style="@style/Article_text"
+            android:text="@{messageData.title + messageData.name}"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toRightOf="@+id/portraitImg"
+            app:layout_constraintTop_toTopOf="@+id/portraitImg"
+            tools:text="小初数学王老师" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/teachingDec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="8dp"
+            android:text="@{messageData.message}"
+            android:textColor="#333333"
+            android:textSize="14sp"
+            app:htmlText="@{messageData.message}"
+            app:layout_constraintBottom_toBottomOf="@+id/portraitImg"
+            app:layout_constraintLeft_toLeftOf="@+id/titleName"
+            app:layout_constraintTop_toBottomOf="@+id/titleName"
+            tools:text="请问是请家教吗？" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/price"
+            style="@style/Article_text"
+            android:text="@{messageData.time}"
+            android:textColor="#333333"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="下午 2:00" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
