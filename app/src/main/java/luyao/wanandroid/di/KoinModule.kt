@@ -36,7 +36,7 @@ val viewModelModule = module {
     viewModel { EduMainViewModel(get()) }
     viewModel { LearningCenterViewModel(get()) }
     viewModel { MineViewModel(get()) }
-    viewModel { FoundViewModel() }
+    viewModel { FoundViewModel(get()) }
 }
 
 val repositoryModule = module {

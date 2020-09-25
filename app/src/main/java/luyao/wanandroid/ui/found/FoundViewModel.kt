@@ -14,6 +14,7 @@ import luyao.wanandroid.databean.EduResponse
 import luyao.wanandroid.timetable.Course
 import luyao.wanandroid.ui.main.CourseData
 import luyao.wanandroid.ui.main.EduMainRepository
+import luyao.wanandroid.ui.main.EduMainViewModel
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.lang.reflect.Type
@@ -22,18 +23,21 @@ import java.lang.reflect.Type
  * Created by luyao
  * on 2019/10/15 10:46
  */
-class FoundViewModel : BaseViewModel() {
+class FoundViewModel(private val eduMainRepository: EduMainRepository) : BaseViewModel() {
 
     private var currentPage = 1
-    var showLoading: Boolean = false // 展示loading
-    val messageDataList: MutableLiveData<List<MessageData>> = MutableLiveData()
+    private val _uiState = MutableLiveData<UiModel>()
+    val uiState: LiveData<UiModel>
+        get() = _uiState
 
     // xml界面中使用
     val refreshMessage: () -> Unit = { getMessageDataList(true) }
+
     fun getMessageDataList(isRefresh: Boolean = false) = getMessageData(isRefresh)
+
     private fun getMessageData(isRefresh: Boolean = false) {
         viewModelScope.launch(Dispatchers.Main) {
-            showLoading = true
+            emitUiState(true)
             if (isRefresh) currentPage = 1
             val input = App.CONTEXT.assets.open("foundMessage.json")//传入文件名称 读取assets文件
             val results = StringBuilder()
@@ -46,10 +50,30 @@ class FoundViewModel : BaseViewModel() {
 
             val list = result
             currentPage++
-            showLoading = false
-            messageDataList.value = list
+            emitUiState(showLoading = false, showSuccess = list, isRefresh = isRefresh)
         }
 
     }
+
+    private fun emitUiState(
+            showLoading: Boolean = false,
+            showError: String? = null,
+            showSuccess: List<MessageData>? = null,
+            showEnd: Boolean = false,
+            isRefresh: Boolean = false,
+            needLogin: Boolean? = null
+    ) {
+        val uiModel = UiModel(showLoading, showError, showSuccess, showEnd, isRefresh, needLogin)
+        _uiState.value = uiModel
+    }
+
+    data class UiModel(
+            val showLoading: Boolean, // 展示loading
+            val showError: String?, // 错误信息
+            val showSuccess: List<MessageData>?, // 正确的结果
+            val showEnd: Boolean, // 加载更多
+            val isRefresh: Boolean, // 刷新
+            val needLogin: Boolean? = null
+    )
 
 }

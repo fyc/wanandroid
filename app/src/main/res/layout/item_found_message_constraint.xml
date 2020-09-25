@@ -13,11 +13,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
         android:background="@color/white"
         android:paddingLeft="15dp"
-        android:paddingTop="10dp"
+        android:paddingTop="8dp"
         android:paddingRight="15dp"
-        android:paddingBottom="10dp">
+        android:paddingBottom="8dp">
 
         <ImageView
             android:id="@+id/portraitImg"
@@ -28,12 +29,27 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_message_unread_num"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:background="@drawable/bg_red_point"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="@+id/portraitImg"
+            app:layout_constraintLeft_toRightOf="@+id/portraitImg"
+            app:layout_constraintStart_toEndOf="@+id/portraitImg"
+            app:layout_constraintTop_toTopOf="@+id/portraitImg"
+            tools:text="1" />
+
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/titleName"
             style="@style/Article_text"
             android:text="@{messageData.title + messageData.name}"
             android:textColor="#333333"
             android:textSize="16sp"
-            app:layout_constraintLeft_toRightOf="@+id/portraitImg"
+            app:layout_constraintLeft_toRightOf="@+id/tv_message_unread_num"
             app:layout_constraintTop_toTopOf="@+id/portraitImg"
             tools:text="小初数学王老师" />
 
@@ -46,7 +62,6 @@
             android:text="@{messageData.message}"
             android:textColor="#333333"
             android:textSize="14sp"
-            app:htmlText="@{messageData.message}"
             app:layout_constraintBottom_toBottomOf="@+id/portraitImg"
             app:layout_constraintLeft_toLeftOf="@+id/titleName"
             app:layout_constraintTop_toBottomOf="@+id/titleName"

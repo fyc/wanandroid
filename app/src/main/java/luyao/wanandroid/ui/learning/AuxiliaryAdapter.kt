@@ -11,7 +11,7 @@ import luyao.wanandroid.model.bean.Article
  * Created by luyao
  * on 2018/3/14 15:52
  */
-class AuxiliaryAdapter(layoutResId: Int = R.layout.item_auxiliary_view) : BaseBindAdapter<AuxiliaryData>(layoutResId, BR.auxiliaryAdapter) {
+class AuxiliaryAdapter(layoutResId: Int = R.layout.item_auxiliary_view) : BaseBindAdapter<AuxiliaryData>(layoutResId, BR.auxiliaryData) {
 
     override fun convert(helper: BindViewHolder, item: AuxiliaryData) {
         super.convert(helper, item)

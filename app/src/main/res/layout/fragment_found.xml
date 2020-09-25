@@ -19,17 +19,51 @@
         android:id="@+id/homeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        binding:isRefresh="@{viewModel.showLoading}"
+        android:background="#F2F2F2"
+        binding:isRefresh="@{viewModel.uiState.showLoading}"
         binding:onRefresh="@{viewModel.refreshMessage}">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/messageRecycleView"
-        adapter="@{messageAdapter}"
-        itemBottomPadding="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        binding:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed">
+
+            <luyao.wanandroid.ui.learning.LearningCenterTitleBar
+                android:id="@+id/title_bar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@android:color/transparent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:titleLeftText="发现中心"
+                app:titleLeftTextSize="16sp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_title_ips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="已邀请X名老师，收到X个回复"
+                android:textSize="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_bar" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/messageRecycleView"
+                adapter="@{messageAdapter}"
+                itemBottomPadding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_title_ips"
+                binding:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </layout>
