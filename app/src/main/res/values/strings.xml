@@ -53,4 +53,9 @@
 
     <string name="executing_nth_iteration">%1$d / %2$d</string>
 
+
+    <string name="learning">学习</string>
+    <string name="found">发现</string>
+    <string name="mine">我的</string>
+
 </resources>

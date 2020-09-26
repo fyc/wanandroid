@@ -24,7 +24,7 @@ class TabFragment : BaseFragment() {
     private val fragmentList = arrayListOf<Fragment>()
     private val mainFragment by lazy { EduMainFragment() }
     private val blogFragment by lazy { LearningCenterFragment() }
-    private val searchFragment by lazy { SearchFragment() }
+//    private val searchFragment by lazy { SearchFragment() }
     private val projectFragment by lazy { FoundFragment() }
     private val profileFragment by lazy { MineFragment() }
 
@@ -32,7 +32,7 @@ class TabFragment : BaseFragment() {
         fragmentList.run {
             add(mainFragment)
             add(blogFragment)
-            add(searchFragment)
+//            add(searchFragment)
             add(projectFragment)
             add(profileFragment)
         }
@@ -57,14 +57,14 @@ class TabFragment : BaseFragment() {
             R.id.blog -> {
                 switchFragment(1)
             }
-            R.id.search -> {
+//            R.id.search -> {
+//                switchFragment(2)
+//            }
+            R.id.project -> {
                 switchFragment(2)
             }
-            R.id.project -> {
-                switchFragment(3)
-            }
             R.id.profile -> {
-                switchFragment(4)
+                switchFragment(3)
             }
         }
         true
