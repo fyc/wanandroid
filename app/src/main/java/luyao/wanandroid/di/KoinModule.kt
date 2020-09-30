@@ -4,6 +4,7 @@ import luyao.wanandroid.CoroutinesDispatcherProvider
 import luyao.wanandroid.model.api.WanRetrofitClient
 import luyao.wanandroid.model.api.WanService
 import luyao.wanandroid.model.repository.*
+import luyao.wanandroid.ui.category.CategoryViewModel
 import luyao.wanandroid.ui.found.FoundViewModel
 import luyao.wanandroid.ui.learning.LearningCenterRepository
 import luyao.wanandroid.ui.learning.LearningCenterViewModel
@@ -37,6 +38,7 @@ val viewModelModule = module {
     viewModel { LearningCenterViewModel(get()) }
     viewModel { MineViewModel(get()) }
     viewModel { FoundViewModel(get()) }
+    viewModel { CategoryViewModel() }
 }
 
 val repositoryModule = module {

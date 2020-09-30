@@ -1,0 +1,353 @@
+{
+  "message": "操作成功",
+  "relust": 1,
+  "code": 0,
+  "data": [
+    {
+      "type": "category",
+      "dataList": [
+        {
+          "id": "",
+          "desc": "",
+          "type": "category",
+          "title": "护肤工具",
+          "imgURL": "https://wicdn.xiaohongchun.com/xhc-plat/1498726865018_cyrDtYrAT6.png",
+          "linkType": "storeTags",
+          "linkParam": "",
+          "online_time": "",
+          "offline_time": ""
+        },
+        {
+          "id": "",
+          "desc": "",
+          "type": "category",
+          "title": "彩妆工具",
+          "imgURL": "https://wicdn.xiaohongchun.com/xhc-plat/1498726908527_cSc7tH44Te.png",
+          "linkType": "storeTags",
+          "linkParam": "",
+          "online_time": "",
+          "offline_time": ""
+        },
+        {
+          "id": "",
+          "desc": "",
+          "type": "category",
+          "title": "个护工具",
+          "imgURL": "https://wicdn.xiaohongchun.com/xhc-plat/1499655415518_E5Wrcz8aKA.png",
+          "linkType": "storeTags",
+          "linkParam": "",
+          "online_time": "",
+          "offline_time": ""
+        },
+        {
+          "id": "",
+          "desc": "",
+          "type": "category",
+          "title": "美发工具",
+          "imgURL": "https://wicdn.xiaohongchun.com/xhc-plat/1498729407847_MTFz6rcWFM.png",
+          "linkType": "storeTags",
+          "linkParam": "",
+          "online_time": "",
+          "offline_time": ""
+        }
+      ],
+      "moreIcon": "https://wicdn.xiaohongchun.com/xhc-plat/1499690614300_5EZYEEGH3b.png",
+      "moreText": "",
+      "moduleStyle": "nothing",
+      "moduleTitle": "工具",
+      "moreLinkType": "channelId",
+      "interfaceLink": "",
+      "moreLinkParam": "",
+      "moreTextDisplay": "true"
+    },
+    {
+      "type": "category",
+      "dataList": [
+        {
+          "id": "",
+          "desc": "",
+          "type": "category",
+          "title": "日用百货",
+          "imgURL": "https://wicdn.xiaohongchun.com/xhc-plat/1498728695705_W53yTzMXiF.png",
+          "linkType": "storeTags",
+          "linkParam": "",
+          "online_time": "",
+          "offline_time": ""
+        },
+        {
+          "id": "",
+          "desc": "",
+          "type": "category",
+          "title": "家饰香氛",
+          "imgURL": "https://wicdn.xiaohongchun.com/xhc-plat/1498728714280_3pkHw3cFKw.png",
+          "linkType": "storeTags",
+          "linkParam": "",
+          "online_time": "",
+          "offline_time": ""
+        },
+        {
+          "id": "",
+          "desc": "",
+          "type": "category",
+          "title": "家居生活",
+          "imgURL": "https://wicdn.xiaohongchun.com/xhc-plat/1498728360667_spt4jHiFDY.png",
+          "linkType": "storeTags",
+          "linkParam": "",
+          "online_time": "",
+          "offline_time": ""
+        },
+        {
+          "id": "",
+          "desc": "",
+          "type": "category",
+          "title": "家居清洁",
+          "imgURL": "https://wicdn.xiaohongchun.com/xhc-plat/1498728769854_HPPbZnACrf.png",
+          "linkType": "storeTags",
+          "linkParam": "",
+          "online_time": "",
+          "offline_time": ""
+        },
+        {
+          "id": "",
+          "desc": "",
+          "type": "category",
+          "title": "办公文具",
+          "imgURL": "https://wicdn.xiaohongchun.com/xhc-plat/1498728649207_mHsj8kCYjT.png",
+          "linkType": "storeTags",
+          "linkParam": "",
+          "online_time": "",
+          "offline_time": ""
+        },
+        {
+          "id": "",
+          "desc": "",
+          "type": "category",
+          "title": "数码3C",
+          "imgURL": "https://wicdn.xiaohongchun.com/xhc-plat/1498728808318_sCXZZkiMzR.png",
+          "linkType": "storeTags",
+          "linkParam": "",
+          "online_time": "",
+          "offline_time": ""
+        },
+        {
+          "id": "",
+          "desc": "",
+          "type": "category",
+          "title": "餐饮用具",
+          "imgURL": "https://wicdn.xiaohongchun.com/xhc-plat/1498728801019_cD5fAAyj2x.png",
+          "linkType": "storeTags",
+          "linkParam": "",
+          "online_time": "",
+          "offline_time": ""
+        }
+      ],
+      "moreIcon": "https://wicdn.xiaohongchun.com/xhc-plat/1499690623245_mY4ZRZMCF2.png",
+      "moreText": "",
+      "moduleStyle": "nothing",
+      "moduleTitle": "品质生活",
+      "moreLinkType": "storeTags",
+      "interfaceLink": "",
+      "moreLinkParam": "",
+      "moreTextDisplay": "true"
+    },
+    {
+      "type": "category",
+      "dataList": [
+        {
+          "id": "",
+          "desc": "",
+          "type": "category",
+          "title": "悦诗风吟",
+          "imgURL": "https://i.xiaohongchun.com/FpJm5zNO2Cyg_IEsRTPXEx5jIPdC",
+          "linkType": "storeTags",
+          "linkParam": "",
+          "online_time": "",
+          "offline_time": ""
+        },
+        {
+          "id": "",
+          "desc": "",
+          "type": "category",
+          "title": "伊蒂之屋 ETUDE HOUSE",
+          "imgURL": "https://i.xiaohongchun.com/FttBkL9JUHSVbE-T67xX82D_0qHB",
+          "linkType": "userId",
+          "linkParam": "",
+          "online_time": "",
+          "offline_time": ""
+        },
+        {
+          "id": "",
+          "desc": "",
+          "type": "category",
+          "title": "高丝",
+          "imgURL": "https://i.xiaohongchun.com/FqmsnLEdyKvqsZ4gTB3cq7xqZ4OI",
+          "linkType": "channelId",
+          "linkParam": "",
+          "online_time": "",
+          "offline_time": ""
+        },
+        {
+          "id": "",
+          "desc": "",
+          "type": "category",
+          "title": "珂曼 CAREMILLE",
+          "imgURL": "https://wicdn.xiaohongchun.com/xhc-plat/1476957433849_Kc6rej85za.jpg",
+          "linkType": "storeTags",
+          "linkParam": "",
+          "online_time": "",
+          "offline_time": ""
+        },
+        {
+          "id": "",
+          "desc": "",
+          "type": "category",
+          "title": "Shiseido 资生堂",
+          "imgURL": "https://i.xiaohongchun.com/FnHaUIU0eRioSAWVlu8DYqiGKGYP",
+          "linkParam": "",
+          "online_time": "",
+          "offline_time": ""
+        },
+        {
+          "id": "",
+          "desc": "",
+          "type": "category",
+          "title": "花王",
+          "imgURL": "https://i.xiaohongchun.com/Ft_e239JU-2myyt0ACZlgii7M-ex",
+          "linkType": "channelId",
+          "linkParam": "",
+          "online_time": "",
+          "offline_time": ""
+        },
+        {
+          "id": "",
+          "desc": "",
+          "type": "category",
+          "title": "伊思",
+          "imgURL": "https://i.xiaohongchun.com/FrhVXWkEp2882N09AmevjruuYqT6",
+          "linkType": "channelId",
+          "linkParam": "",
+          "online_time": "",
+          "offline_time": ""
+        },
+        {
+          "id": "",
+          "desc": "",
+          "type": "category",
+          "title": "得鲜 the saem",
+          "imgURL": "https://wicdn.xiaohongchun.com/xhc-plat/1493368179999_brbNxrAs8W.jpg",
+          "linkType": "userId",
+          "linkParam": "",
+          "online_time": "",
+          "offline_time": ""
+        },
+        {
+          "id": "",
+          "desc": "",
+          "type": "category",
+          "title": "雪花秀",
+          "imgURL": "https://i.xiaohongchun.com/Fp50UF-l5eUB5_B1xJC-vHjuCdR4",
+          "linkType": "channelId",
+          "linkParam": "",
+          "online_time": "",
+          "offline_time": ""
+        },
+        {
+          "id": "",
+          "desc": "",
+          "type": "category",
+          "title": "菲诗小铺 The Face Shop",
+          "imgURL": "https://i.xiaohongchun.com/FlfP5dAdX5WOvSuxe2juW7HXJqpb",
+          "linkType": "storeTags",
+          "linkParam": "",
+          "online_time": "",
+          "offline_time": ""
+        },
+        {
+          "id": "",
+          "desc": "",
+          "type": "category",
+          "title": "博姿 BOOTS",
+          "imgURL": "https://i.xiaohongchun.com/FjMMUJ0Q0c1OiqmJLwVAyg2sSPtS",
+          "linkType": "storeTags",
+          "linkParam": "",
+          "online_time": "",
+          "offline_time": ""
+        },
+        {
+          "id": "",
+          "desc": "",
+          "type": "category",
+          "title": "AHC",
+          "imgURL": "https://i.xiaohongchun.com/FijFuQeUUaihLFE5B1V3upsxj_Dr",
+          "linkType": "channelId",
+          "linkParam": "",
+          "online_time": "",
+          "offline_time": ""
+        },
+        {
+          "id": "",
+          "desc": "",
+          "type": "category",
+          "title": "LG",
+          "imgURL": "https://i.xiaohongchun.com/Fqvg7jUuUOOYr0wREp97V7gdIyAb",
+          "linkType": "channelId",
+          "linkParam": "",
+          "online_time": "",
+          "offline_time": ""
+        },
+        {
+          "id": "",
+          "desc": "",
+          "type": "category",
+          "title": "FANCL",
+          "imgURL": "https://i.xiaohongchun.com/FtnYqY2Pey6D2j5Hbj7ooVsqtE1D",
+          "linkType": "channelId",
+          "linkParam": "",
+          "online_time": "",
+          "offline_time": ""
+        },
+        {
+          "id": "",
+          "desc": "",
+          "type": "category",
+          "title": "爱茉莉 Amore",
+          "imgURL": "https://i.xiaohongchun.com/FhrVS9E_OmgJTpt3-vwADUlOKRg1",
+          "linkType": "storeTags",
+          "linkParam": "",
+          "online_time": "",
+          "offline_time": ""
+        },
+        {
+          "id": "",
+          "desc": "",
+          "type": "category",
+          "title": "谜尚",
+          "imgURL": "https://i.xiaohongchun.com/FoD2WtCnUvWK1QBySg4j-jvlvca9",
+          "linkType": "channelId",
+          "linkParam": "",
+          "online_time": "",
+          "offline_time": ""
+        },
+        {
+          "id": "",
+          "desc": "",
+          "type": "category",
+          "title": "碧柔 Biore",
+          "imgURL": "https://i.xiaohongchun.com/FqnmgT5j57ERugWjaTZf-LfinwYg",
+          "linkType": "storeTags",
+          "linkParam": "",
+          "online_time": "",
+          "offline_time": ""
+        }
+      ],
+      "moreIcon": "",
+      "moreText": "",
+      "moduleStyle": "nothing",
+      "moduleTitle": "品牌分类",
+      "moreLinkType": "storeTags",
+      "interfaceLink": "",
+      "moreLinkParam": "",
+      "moreTextDisplay": "true"
+    }
+  ]
+}

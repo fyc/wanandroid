@@ -1,0 +1,28 @@
+{
+  "message": "操作成功",
+  "relust": 1,
+  "code": 0,
+  "data": [
+    {
+      "moduleTitle": "护肤"
+    },
+    {
+      "moduleTitle": "彩妆"
+    },
+    {
+      "moduleTitle": "个人护理"
+    },
+    {
+      "moduleTitle": "时尚穿搭"
+    },
+    {
+      "moduleTitle": "工具"
+    },
+    {
+      "moduleTitle": "品质生活"
+    },
+    {
+      "moduleTitle": "品牌分类"
+    }
+  ]
+}

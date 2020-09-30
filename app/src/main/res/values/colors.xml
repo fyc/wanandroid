@@ -49,4 +49,13 @@
     <color name="sixteen">#ADADAD</color>
     <color name="tab_indicator_text_selected">#2DACA1</color>
     <color name="tab_indicator_text_unselected">#000000</color>
+
+    <color name="background">#f1f1f1</color>
+
+    <color name="sred">#ff4141</color>
+    <color name="gold">#d8ab5c</color>
+    <color name="orange">#ffa500</color>
+    <color name="pink">#ffc0cb</color>
+    <color name="transparent">#00000000</color>
+    <color name="green">#FF34A350</color>
 </resources>

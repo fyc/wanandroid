@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="luyao.wanandroid.ui.category.CategoryViewModel" />
+
+        <variable
+            name="menuAdapter"
+            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
+
+        <variable
+            name="cateAdapter"
+            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/lv_menu"
+                adapter="@{menuAdapter}"
+                itemBottomPadding="1dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#EDECEC"
+                binding:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+            <com.scwang.smart.refresh.layout.SmartRefreshLayout
+                android:id="@+id/ref_home"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:background="@color/white"
+                app:srlAccentColor="@android:color/white"
+                app:srlEnableAutoLoadMore="false"
+                app:srlEnablePreviewInEditMode="true"
+                app:srlPrimaryColor="#444444">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:gravity="center"
+                    android:text="加载上一级" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/lv_home"
+                    adapter="@{cateAdapter}"
+                    itemBottomPadding="1dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#EDECEC"
+                    binding:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:gravity="center"
+                    android:text="加载下一级" />
+
+            </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</layout>
