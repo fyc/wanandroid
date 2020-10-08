@@ -32,7 +32,7 @@ class LoginRepository(val service: WanService) : BaseRepository() {
             val user = response.data
             isLogin = true
             userJson = Gson().toJson(user)
-            App.CURRENT_USER = user
+//            App.CURRENT_USER = user
         })
     }
 

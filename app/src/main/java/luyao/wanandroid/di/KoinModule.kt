@@ -17,6 +17,8 @@ import luyao.wanandroid.ui.search.SearchViewModel
 import luyao.wanandroid.ui.share.ShareViewModel
 import luyao.wanandroid.ui.square.ArticleViewModel
 import luyao.wanandroid.ui.system.SystemViewModel
+import luyao.wanandroid.ui.user.UserRepository
+import luyao.wanandroid.ui.user.UserViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -37,6 +39,7 @@ val viewModelModule = module {
     viewModel { LearningCenterViewModel(get()) }
     viewModel { MineViewModel(get()) }
     viewModel { FoundViewModel(get()) }
+    viewModel { UserViewModel(get(), get()) }
 }
 
 val repositoryModule = module {
@@ -53,6 +56,7 @@ val repositoryModule = module {
     single { ShareRepository() }
     single { EduMainRepository() }
     single { LearningCenterRepository() }
+    single { UserRepository(get()) }
 }
 
 val appModule = listOf(viewModelModule, repositoryModule)

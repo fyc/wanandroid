@@ -5,6 +5,7 @@ import android.content.Context
 import luyao.mvvm.core.util.Timer
 import luyao.wanandroid.di.appModule
 import luyao.wanandroid.model.bean.User
+import luyao.wanandroid.ui.user.UserData
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import kotlin.properties.Delegates
@@ -17,7 +18,7 @@ class App : Application() {
 
     companion object {
         var CONTEXT: Context by Delegates.notNull()
-        lateinit var CURRENT_USER: User
+        lateinit var CURRENT_USER: UserData
     }
 
     override fun attachBaseContext(base: Context?) {

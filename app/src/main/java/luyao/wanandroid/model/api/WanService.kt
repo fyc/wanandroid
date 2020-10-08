@@ -1,6 +1,7 @@
 package luyao.wanandroid.model.api
 
 import luyao.wanandroid.model.bean.*
+import luyao.wanandroid.ui.user.UserData
 import retrofit2.http.*
 
 
@@ -11,7 +12,7 @@ import retrofit2.http.*
 interface WanService {
 
     companion object {
-        const val BASE_URL = "https://www.wanandroid.com"
+        const val BASE_URL = "http://47.112.249.229"
     }
 
     @GET("/article/list/{page}/json")
@@ -80,5 +81,15 @@ interface WanService {
     @FormUrlEncoded
     @POST("/lg/user_article/add/json")
     suspend fun shareArticle(@Field("title") title: String, @Field("link") url: String): WanResponse<String>
+
+
+    @FormUrlEncoded
+    @POST("/K12Edu/f/registerOrLogin")
+    suspend fun login2(@FieldMap map: Map<String, @JvmSuppressWildcards Any>): EduResponse<UserData>
+
+    @FormUrlEncoded
+    @POST("/K12Edu/f/sendSmsCode")
+    suspend fun sendSmsCode(@FieldMap map: Map<String, @JvmSuppressWildcards Any?>): EduResponse<Nothing>
+
 
 }
