@@ -47,15 +47,15 @@ class LoginActivity : BaseVMActivity() {
         }
     }
 
-    private var progressDialog: ProgressDialog? = null
-    private fun showProgressDialog() {
-        if (progressDialog == null)
-            progressDialog = ProgressDialog(this)
-        progressDialog?.show()
-    }
-
-    private fun dismissProgressDialog() {
-        progressDialog?.dismiss()
-    }
+//    private var progressDialog: ProgressDialog? = null
+//    private fun showProgressDialog() {
+//        if (progressDialog == null)
+//            progressDialog = ProgressDialog(this)
+//        progressDialog?.show()
+//    }
+//
+//    private fun dismissProgressDialog() {
+//        progressDialog?.dismiss()
+//    }
 
 }

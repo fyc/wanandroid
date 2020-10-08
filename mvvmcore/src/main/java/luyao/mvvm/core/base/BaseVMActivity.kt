@@ -1,6 +1,7 @@
 package luyao.mvvm.core.base
 
 import android.Manifest
+import android.app.ProgressDialog
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.Toast
@@ -16,9 +17,11 @@ abstract class BaseVMActivity : AppCompatActivity() {
 
     protected inline fun <reified T : ViewDataBinding> binding(
             @LayoutRes resId: Int
-    ): Lazy<T> = lazy { DataBindingUtil.setContentView<T>(this, resId).apply {
-        lifecycleOwner = this@BaseVMActivity
-    } }
+    ): Lazy<T> = lazy {
+        DataBindingUtil.setContentView<T>(this, resId).apply {
+            lifecycleOwner = this@BaseVMActivity
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,7 +54,7 @@ abstract class BaseVMActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(this@BaseVMActivity, permissions, mRequestCode)
 
         } else {
-            Toast.makeText(this@BaseVMActivity,"全部授予！",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@BaseVMActivity, "全部授予！", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -67,4 +70,15 @@ abstract class BaseVMActivity : AppCompatActivity() {
         }// 授权结束后的后续操作
     }
 
+
+    var progressDialog: ProgressDialog? = null
+    fun showProgressDialog() {
+        if (progressDialog == null)
+            progressDialog = ProgressDialog(this)
+        progressDialog?.show()
+    }
+
+    fun dismissProgressDialog() {
+        progressDialog?.dismiss()
+    }
 }

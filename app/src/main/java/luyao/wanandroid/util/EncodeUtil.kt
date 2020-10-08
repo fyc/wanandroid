@@ -30,7 +30,7 @@ class EncodeUtil private constructor() {
                     }
                 }
 //                println(this.length)
-                Log.d("aaaaaaaaaaa", this.toString().toUpperCase())
+//                Log.d("aaaaaaaaaaa", this.toString().toUpperCase())
                 return this.toString()
             }
         }

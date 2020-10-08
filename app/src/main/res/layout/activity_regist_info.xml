@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="luyao.wanandroid.ui.registinfo.RegistInfoViewModel" />
+
+        <variable
+            name="title"
+            type="luyao.wanandroid.model.bean.Title" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/title_layout"
+            app:title="@{title}" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@drawable/newbie_guide_pic" />
+
+        <include layout="@layout/hor_line" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="填写基本信息"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tablayout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:layout_constraintEnd_toStartOf="@+id/button1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:tabIndicatorColor="@color/colorPrimary"
+            app:tabMode="auto"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
+
+</layout>

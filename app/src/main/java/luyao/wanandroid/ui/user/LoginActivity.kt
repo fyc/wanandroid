@@ -9,6 +9,8 @@ import luyao.util.ktx.ext.toast
 import luyao.wanandroid.R
 import luyao.wanandroid.databinding.ActivityLogin2Binding
 import luyao.wanandroid.model.bean.Title
+import luyao.wanandroid.ui.NavigationActivity
+import luyao.wanandroid.ui.registinfo.RegistInfoActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
 
@@ -40,7 +42,10 @@ class LoginActivity : BaseVMActivity() {
                 it.isSuccess?.let {
                     toast("登录成功")
                     dismissProgressDialog()
+//                    NavigationActivity.start(this@LoginActivity)
+                    RegistInfoActivity.start(this@LoginActivity)
                     finish()
+
                 }
 
                 it.isError?.let { err ->
@@ -54,15 +59,15 @@ class LoginActivity : BaseVMActivity() {
         }
     }
 
-    private var progressDialog: ProgressDialog? = null
-    private fun showProgressDialog() {
-        if (progressDialog == null)
-            progressDialog = ProgressDialog(this)
-        progressDialog?.show()
-    }
-
-    private fun dismissProgressDialog() {
-        progressDialog?.dismiss()
-    }
+//    private var progressDialog: ProgressDialog? = null
+//    private fun showProgressDialog() {
+//        if (progressDialog == null)
+//            progressDialog = ProgressDialog(this)
+//        progressDialog?.show()
+//    }
+//
+//    private fun dismissProgressDialog() {
+//        progressDialog?.dismiss()
+//    }
 
 }
